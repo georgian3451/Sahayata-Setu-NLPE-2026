@@ -1,0 +1,128 @@
+[
+  {
+    "incident_type": "arson",
+    "section_code": "Section 3(2)(iv)",
+    "act": "Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+    "title": "Mischief by fire or explosive substance destroying human dwelling or property (Arson)",
+    "punishment": "Imprisonment for life and fine",
+    "description": "Commits mischief by fire or any explosive substance intending to cause or knowing that it will cause destruction of any building which is ordinarily used as a place of human dwelling or as a place for custody of property.",
+    "keywords": [
+      "arson", "burn", "burned", "burning", "torch", "fire", "fuel", "burn our house", "torch our house", "house to ashes",
+      "आग लगा", "घर जला", "जलाकर", "जलाना", "अग्नि", "भड़क", "aag laga", "ghar jala", "jalana",
+      "আগুন লাগিয়ে", "বাড়ি পোড়ানো", "পুড়িয়ে মারবে",
+      "வீட்டை கொளுத்துவோம்", "தீ வைப்பு", "எரிக்க"
+    ]
+  },
+  {
+    "incident_type": "murder_threat",
+    "section_code": "Section 3(2)(v)",
+    "act": "Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+    "title": "Offence punishable with imprisonment of 10+ years against person/property (Murder Threat / Grievous Hurt)",
+    "punishment": "Imprisonment for life and fine",
+    "description": "Commits any offence under the Indian Penal Code punishable with imprisonment for a term of ten years or more against a person or property on the ground that such person is a member of a Scheduled Caste or a Scheduled Tribe.",
+    "keywords": [
+      "kill", "murder", "kill us", "threatened to shoot", "cut into pieces", "weapons", "sword", "gun", "knife", "bloodshed", "lynch", "firearms", "mob",
+      "मार डालेंगे", "जान से मार", "गोली मार", "टुकड़े कर देंगे", "खून", "तलवार", "बंदूक", "चाकू", "हथियार", "भीड़", "maar dalenge", "jaan se maar", "goli maar", "kat dalenge", "hathiyar", "talwar", "bandook", "bheed",
+      "মেরে ফেলবে", "খুন", "গুলি করবে", "দলবদ্ধ আক্রমণ", "রক্ত", "তরোয়াল", "বন্দুক", "অস্ত্র",
+      "கொன்று விடுவோம்", "கொலை", "தாக்குதல்", "சுட்டு விடுவோம்", "வாள்", "துப்பாக்கி", "ஆயுதம்", "கொலை மிரட்டல்"
+    ]
+  },
+  {
+    "incident_type": "confinement",
+    "section_code": "Section 3(1)(za) & Section 3(1)(n)",
+    "act": "Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+    "title": "Wrongful Confinement, Obstruction of Passage & Compelling to Leave Residence",
+    "punishment": "Imprisonment 6 months to 5 years and fine",
+    "description": "Obstructing or preventing any member of SC/ST from using common passage, road, or public conveyance (Sec 3(1)(za)); or compelling/luring to leave residence, house, or village (Sec 3(1)(n)).",
+    "keywords": [
+      "locked inside", "surrounded our house", "barricaded", "cannot leave", "trapped", "blocked the road", "hostage", "cornered", "not letting us step out", "village exit blocked", "gate locked", "surrounded", "breaking in",
+      "घर घेर लिया", "बाहर नहीं निकलने दे रहे", "रास्ता बंद", "बंधक", "फंसे हुए हैं", "ताला लगा दिया", "चारों तरफ से घेर", "दरवाजा तोड़ रहे हैं", "ghar gher liya", "bahar nahi nikalne", "rasta band", "bandhak", "phase hue hain", "darwaza tod rahe",
+      "বাড়ি ঘিরে রেখেছে", "বেরোতে দিচ্ছে না", "রাস্তা বন্ধ", "বন্দী", "আটকে পড়েছি", "দরজা ভাঙছে",
+      "வீட்டை சூழ்ந்துள்ளனர்", "வெளியே வர விடவில்லை", "வழி அடைக்கப்பட்டது", "சிறைப்பிடிப்பு", "கதவை உடைக்கிறார்கள்"
+    ]
+  },
+  {
+    "incident_type": "social_boycott",
+    "section_code": "Section 3(1)(zc)",
+    "act": "Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+    "title": "Imposing or Threatening Social or Economic Boycott",
+    "punishment": "Imprisonment 6 months to 5 years and fine",
+    "description": "Imposes or threatens a social or economic boycott of any person or a family on the ground that such person is a member of a Scheduled Caste or a Scheduled Tribe.",
+    "keywords": [
+      "social boycott", "boycott", "ostracized", "expelled from village", "stopped electricity", "no one speaking with us", "refused farm work", "hukka pani band", "refused ration",
+      "सामाजिक बहिष्कार", "हुक्का पानी बंद", "गांव से निकाल", "बिजली काट दी", "दुकान से राशन नहीं", "samajik bahishkar", "hukka pani band", "gaon se nikal", "rashan nahi",
+      "সামাজিক বয়কট", "গ্রাম ছাড়া", "হুকা পানি বন্ধ",
+      "சமூக புறக்கணிப்பு", "ஊரை விட்டு நீக்கம்", "ரேஷன் கடை மறுப்பு"
+    ]
+  },
+  {
+    "incident_type": "denial_of_water",
+    "section_code": "Section 3(1)(za)(C) & Section 3(1)(b)",
+    "act": "Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+    "title": "Denial of Access to Drinking Water Source or Fouling Public Water",
+    "punishment": "Imprisonment 6 months to 5 years and fine",
+    "description": "Obstructing or preventing access to a water source or spring, well, tank, handpump; or corrupting/fouling the water so as to render it less fit for the purpose for which it is ordinarily used.",
+    "keywords": [
+      "drinking water", "denied water", "common village well", "denied drinking water", "water denied", "well water", "handpump", "fouled water",
+      "पानी बंद कर दिया", "कुएं से पानी नहीं लेने दे रहे", "हैंडपंप से हमें पानी", "paani band", "kuen se paani nahi", "handpump",
+      "জল দেওয়া বন্ধ", "জল নিতে বাধা", "জল তুলতে দিচ্ছে না",
+      "தண்ணீர் நிறுத்தப்பட்டது", "தண்ணீர் எடுக்க தடை", "பொது கிணறு", "பொது கிணற்றிலிருந்து"
+    ]
+  },
+  {
+    "incident_type": "land_encroachment",
+    "section_code": "Section 3(1)(g) & Section 3(1)(f)",
+    "act": "Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+    "title": "Wrongful Dispossession, Encroachment, or Cultivation of Land",
+    "punishment": "Imprisonment 6 months to 5 years and fine",
+    "description": "Wrongfully dispossesses a member of SC/ST from his land or premises or interferes with the enjoyment of his rights over any land, premises or water bodies; or wrongfully occupies/cultivates SC/ST land.",
+    "keywords": [
+      "land encroachment", "encroachment", "agricultural land", "stop agricultural work", "dispossessed", "land grabbed", "fields", "farming land", "landlord pressure", "our fields",
+      "जमीन पर कब्जा", "खेत", "कृषि भूमि", "जमीन खाली", "khet", "zameen par kabza", "krishi bhoomi",
+      "জমি দখল", "কৃষি জমি", "জমি থেকে উচ্ছেদ",
+      "நில ஆக்கிரமிப்பு", "விவசாய நிலம்", "நிலத்தை பறிக்க"
+    ]
+  },
+  {
+    "incident_type": "public_humiliation",
+    "section_code": "Section 3(1)(r) & Section 3(1)(s)",
+    "act": "Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+    "title": "Intentional Insult, Intimidation & Abuse by Caste Name in Public View",
+    "punishment": "Imprisonment 6 months to 5 years and fine",
+    "description": "Intentionally insults or intimidates with intent to humiliate a member of SC/ST in any place within public view; or abuses any member of SC/ST by caste name in any place within public view.",
+    "keywords": [
+      "caste slur", "caste abuse", "caste discrimination", "public humiliation", "humiliated", "taunting", "abusing", "untouchability", "called by caste name",
+      "जातिसूचक शब्द", "ताने मारते हैं", "अपमानित किया", "गाली गलौज", "छुआछूत", "taane", "apmanit", "jati",
+      "জাতিগত গালি", "অপমান", "অস্পৃশ্যতা",
+      "சாதி பெயர் சொல்லி திட்டுதல்", "அவமானம்", "தீண்டாமை"
+    ]
+  },
+  {
+    "incident_type": "sexual_assault",
+    "section_code": "Section 3(1)(w)",
+    "act": "Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+    "title": "Assault or Force on SC/ST Woman with Intent to Outrage Modesty / Sexual Exploitation",
+    "punishment": "Imprisonment 1 to 5 years and fine",
+    "description": "Intentionally touches a woman belonging to SC/ST knowing that she belongs to SC/ST, without her consent; or uses words, acts or gestures of a sexual nature; or outrages modesty.",
+    "keywords": [
+      "sexual assault", "rape", "molestation", "outrage modesty", "touched inappropriately", "sexual harassment", "forced herself", "forced himself",
+      "बलात्कार", "छेड़छाड़", "शारीरिक शोषण", "यौन उत्पीड़न", "balatkar", "chhedchhad", "shoshan",
+      "ধর্ষণ", "শ্লীলতাহানি", "যৌন হেনস্থা",
+      "பாலியல் வன்கொடுமை", "மானபங்கம்", "பாலியல் தொல்லை"
+    ]
+  },
+  {
+    "incident_type": "witness_coercion",
+    "section_code": "Section 15A",
+    "act": "Scheduled Castes and the Scheduled Tribes (Prevention of Atrocities) Act, 1989",
+    "title": "Coercion, Threat to Witness/Victim & Protection Rights Violation",
+    "punishment": "Imprisonment up to 1 year or fine",
+    "description": "Duty of state to protect victims and witnesses from intimidation, threat, inducement or violence; right to be treated with dignity and protected against coercion to withdraw or compromise.",
+    "keywords": [
+      "forcing compromise", "withdraw complaint", "take back case", "compromise", "police refused", "refused to file fir", "sarpanch pressure", "influential people", "false case",
+      "सुलह का दबाव", "केस वापस लेने", "एफआईआर दर्ज नहीं", "थाने में सुनवाई नहीं", "सरपंच की धमकी", "झूठा मुकदमा", "sulah ka dabav", "case wapas lene", "fir darj nahi",
+      "আপস করতে বাধ্য করছে", "অভিযোগ প্রত্যাহার", "মামলা তুলে নেওয়া", "পুলিশ এফআইআর নিচ্ছে না",
+      "சமாதானம் செய்ய வற்புறுத்துகின்றனர்", "வழக்கை வாபஸ் பெற", "புகாரை திரும்ப பெற", "காவல்துறை மறுக்கிறது"
+    ]
+  }
+]

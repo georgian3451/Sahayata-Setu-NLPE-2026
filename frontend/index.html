@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sahayata Setu (सहायता सेतु) — AI Stress & Trauma Assessment Platform | NHAA 14566</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <!-- Top National Header Bar -->
+  <header class="gov-topbar">
+    <div class="container topbar-content">
+      <div class="gov-emblem-group">
+        <div class="emblem-symbol">🏛️</div>
+        <div>
+          <span class="gov-ministry" data-i18n="ministry_title">Ministry of Social Justice & Empowerment</span>
+          <span class="gov-sub" data-i18n="gov_sub">Government of India • Smart India Hackathon 2026 (SIH26093)</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="helpline-badge">
+          <span class="pulse-dot"></span>
+          <span class="helpline-text"><span data-i18n="helpline_label">NHAA Toll-Free:</span> <strong>14566</strong></span>
+        </div>
+        <div class="lang-selector">
+          <label for="langSwitch" class="sr-only">Language</label>
+          <select id="langSwitch">
+            <option value="en" selected>English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="bn">বাংলা (Bengali)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Prototype & Synthetic Data Banner -->
+  <div class="prototype-banner">
+    <div class="container banner-inner">
+      <span class="badge-synthetic" data-i18n="badge_synthetic">SYNTHETIC DATA ONLY</span>
+      <span data-i18n="prototype_disclaimer">
+        Prototype Demonstration: Contains zero citizen PII. AI operates strictly as a decision-support triage aid with Human-in-the-Loop verification.
+      </span>
+      <span class="team-tag"><span data-i18n="team_label">Team:</span> <strong>InnovateX</strong></span>
+    </div>
+  </div>
+
+  <!-- Main Navigation & Hero -->
+  <nav class="main-nav">
+    <div class="container nav-container">
+      <div class="brand">
+        <div class="brand-icon">🛡️</div>
+        <div>
+          <h1 class="brand-title">Sahayata Setu <span class="brand-sub">(सहायता सेतु)</span></h1>
+          <p class="brand-tagline" data-i18n="brand_tagline">Intelligent Stress & Trauma Assessment for Atrocity Helpline Triage</p>
+        </div>
+      </div>
+      <div class="nav-tabs">
+        <button class="tab-btn active" data-tab="intake-tab" id="tabIntakeBtn">
+          <span>📥</span> <span data-i18n="tab_intake">Multi-Channel Intake</span>
+        </button>
+        <button class="tab-btn" data-tab="queue-tab" id="tabQueueBtn">
+          <span>📋</span> <span data-i18n="tab_queue">Counsellor Triage Desk</span>
+          <span class="queue-count-badge" id="queueBadge">0</span>
+        </button>
+        <button class="tab-btn" data-tab="audit-tab" id="tabAuditBtn">
+          <span>🔬</span> <span data-i18n="tab_audit">Explainability & Landscape</span>
+        </button>
+        <button class="tab-btn" data-tab="vigilance-tab" id="tabVigilanceBtn">
+          <span>🛰️</span> <span data-i18n="tab_vigilance">Vigilance Dashboard</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container main-content">
+    
+    <!-- TAB 1: Multi-Channel Intake & Live SVI Assessor -->
+    <section id="intake-tab" class="tab-pane active">
+      <div class="grid-2col">
+        <!-- Left Panel: Input Studio -->
+        <div class="card intake-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="card-icon">🎙️</span>
+              <div>
+                <h2 class="card-title" data-i18n="intake_title">Multi-Channel Intake Simulator</h2>
+                <p class="card-subtitle" data-i18n="intake_subtitle">Ingest statements via Portal Web Form, Chatbot, or IVRS Speech Audio</p>
+              </div>
+            </div>
+            <div class="channel-pills" id="channelSelector">
+              <button class="channel-pill active" data-channel="portal" title="Portal Web Form" data-i18n-title="channel_portal_title">
+                <span>📋</span> <span data-i18n="channel_portal">Portal Form</span>
+              </button>
+              <button class="channel-pill" data-channel="chatbot" title="Interactive Chatbot" data-i18n-title="channel_chatbot_title">
+                <span>💬</span> <span data-i18n="channel_chatbot">Chatbot</span>
+              </button>
+              <button class="channel-pill" data-channel="ivrs" title="14566 IVRS Voice Call" data-i18n-title="channel_ivrs_title">
+                <span>📞</span> <span data-i18n="channel_ivrs">IVRS Stream</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Quick Test Presets -->
+          <div class="preset-section">
+            <span class="preset-label" data-i18n="quick_presets">Quick Test Cases:</span>
+            <div class="preset-buttons">
+              <button class="preset-btn tier-low-btn" onclick="loadPreset('CASE-2026-0814')">
+                <span class="dot dot-low"></span> <span data-i18n="preset_t1_low">T1: Low (Admin)</span>
+              </button>
+              <button class="preset-btn tier-mod-btn" onclick="loadPreset('CASE-2026-0819')">
+                <span class="dot dot-mod"></span> <span data-i18n="preset_t2_mod">T2: Moderate (Water Denial - Hindi)</span>
+              </button>
+              <button class="preset-btn tier-high-btn" onclick="loadPreset('CASE-2026-0823')">
+                <span class="dot dot-high"></span> <span data-i18n="preset_t3_high">T3: High (Confinement)</span>
+              </button>
+              <button class="preset-btn tier-crit-btn" onclick="loadPreset('CASE-2026-0831')">
+                <span class="dot dot-crit"></span> <span data-i18n="preset_t4_crit_hi">T4: Critical (Mob Arson - Hindi)</span>
+              </button>
+              <button class="preset-btn tier-crit-btn" onclick="loadPreset('CASE-2026-0850')">
+                <span class="dot dot-crit"></span> <span data-i18n="preset_t4_crit_bn">T4: Critical (Siege - Bengali)</span>
+              </button>
+              <button class="preset-btn tier-high-btn" onclick="loadPreset('CASE-2026-0855')">
+                <span class="dot dot-high"></span> <span data-i18n="preset_t3_high_ta">T3: High (Boycott - Tamil)</span>
+              </button>
+              <button class="preset-btn tier-crit-btn" onclick="loadPreset('CASE-2026-0870')">
+                <span class="dot dot-crit" style="background-color: #a855f7;"></span> <span data-i18n="preset_t5_crisis_hi">T5: Psychological Crisis (Hindi)</span>
+              </button>
+              <button class="preset-btn tier-high-btn" onclick="loadPreset('CASE-2026-0860')">
+                <span class="dot dot-high"></span> <span data-i18n="preset_t6_high_te">T6: High (Boycott - Telugu)</span>
+              </button>
+              <button class="preset-btn tier-high-btn" onclick="loadPreset('CASE-2026-0865')">
+                <span class="dot dot-high"></span> <span data-i18n="preset_t7_high_mr">T7: High (Boycott/Pressure - Marathi)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Audio Stream Simulator for IVRS -->
+          <div id="ivrsAudioSection" class="audio-stream-card">
+            <div class="audio-header">
+              <span class="audio-title" data-i18n="audio_telemetry_title">📞 14566 IVRS Voice Biomarker Telemetry</span>
+              <span class="ser-benchmark-tag" title="Standard Indian SER baseline per IIETA Cross-Corpus study">
+                <span data-i18n="ser_confidence_tag">SER Confidence:</span> <strong>45–70%</strong>
+              </span>
+            </div>
+            <div class="waveform-container">
+              <canvas id="waveformCanvas" width="500" height="60"></canvas>
+            </div>
+            <div class="audio-controls">
+              <button id="toggleAudioSimBtn" class="btn btn-secondary btn-sm">
+                <span>▶️</span> <span id="audioSimText" data-i18n="audio_sim_btn">Simulate Live Voice Stream</span>
+              </button>
+              <div class="audio-stats" id="audioStatsDisplay">
+                <span><span data-i18n="lbl_pitch_var">Pitch Var:</span> <strong id="valPitch">68.4 Hz</strong></span>
+                <span><span data-i18n="lbl_jitter">Jitter:</span> <strong id="valJitter">1.85%</strong></span>
+                <span><span data-i18n="lbl_rate">Rate:</span> <strong id="valWpm">162 wpm</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Input Form -->
+          <form id="assessmentForm" class="intake-form">
+            <div class="form-group" style="margin-bottom: 12px;">
+              <div class="label-row">
+                <label for="existingCaseIdInput" class="form-label" data-i18n="lbl_existing_case_id">
+                  Case ID (Optional — For Follow-up Contact Re-Analysis):
+                </label>
+                <span class="field-hint text-dim" data-i18n="hint_existing_case_id">Tracks score trend on repeat touchpoint</span>
+              </div>
+              <input 
+                type="text" 
+                id="existingCaseIdInput" 
+                class="form-input" 
+                placeholder="Leave blank for new case, or enter existing ID (e.g. CASE-2026-0814)..." 
+                data-i18n-placeholder="placeholder_existing_case_id"
+              />
+            </div>
+
+            <div class="form-group">
+              <div class="label-row">
+                <label for="transcriptInput" class="form-label" data-i18n="transcript_label">
+                  Citizen Statement / Speech-to-Text Transcript:
+                </label>
+                <span class="char-counter" id="charCount">0 characters</span>
+              </div>
+              <textarea 
+                id="transcriptInput" 
+                rows="6" 
+                class="form-textarea" 
+                placeholder="Enter or paste caller statement / incident description (English, Hindi, Bengali, Tamil, Telugu, Marathi)..."
+                data-i18n-placeholder="transcript_placeholder"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Citizen Consent Gate -->
+            <div class="consent-box">
+              <label class="checkbox-container">
+                <input type="checkbox" id="consentCheckbox" checked required>
+                <span class="checkmark"></span>
+                <span class="consent-text" data-i18n="consent_statement">
+                  Citizen Consent Gate: I consent to AI-assisted distress screening for emergency triage prioritization under NHAA protocol.
+                </span>
+              </label>
+            </div>
+
+            <div class="action-btn-row">
+              <button type="submit" class="btn btn-primary" id="evaluateBtn">
+                <span>⚡</span> <span data-i18n="btn_evaluate">Analyze Stress & Risk Tier</span>
+              </button>
+              <button type="button" class="btn btn-outline" id="clearBtn" data-i18n="btn_clear">
+                Clear
+              </button>
+              <button type="button" class="btn btn-success" id="pushToQueueBtn" disabled>
+                <span>➕</span> <span data-i18n="btn_save_queue">Push to Live Triage Queue</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right Panel: Real-time SVI Gauge & Explainability -->
+        <div class="card result-card" id="assessmentResultCard">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="card-icon">📊</span>
+              <div>
+                <h2 class="card-title" data-i18n="analysis_title">Stress Vulnerability Index (SVI)</h2>
+                <p class="card-subtitle" data-i18n="analysis_subtitle">Transparent mathematical scoring with explainable signal drivers</p>
+              </div>
+            </div>
+            <div id="tierBadgeTop" class="tier-badge badge-neutral" data-i18n="awaiting_input">Awaiting Input</div>
+          </div>
+
+          <!-- Dynamic SVI Gauge -->
+          <div class="gauge-wrapper">
+            <svg viewBox="0 0 240 140" class="svi-gauge-svg">
+              <!-- Background Arc -->
+              <path d="M 30 120 A 90 90 0 0 1 210 120" fill="none" stroke="#334155" stroke-width="18" stroke-linecap="round" />
+              <!-- Colored Segments (0-30 Low, 31-55 Mod, 56-78 High, 79-100 Crit) -->
+              <path id="gaugeLow" d="M 30 120 A 90 90 0 0 1 73 57" fill="none" stroke="#0d9488" stroke-width="18" stroke-opacity="0.35" />
+              <path id="gaugeMod" d="M 73 57 A 90 90 0 0 1 120 30" fill="none" stroke="#d97706" stroke-width="18" stroke-opacity="0.35" />
+              <path id="gaugeHigh" d="M 120 30 A 90 90 0 0 1 167 57" fill="none" stroke="#ea580c" stroke-width="18" stroke-opacity="0.35" />
+              <path id="gaugeCrit" d="M 167 57 A 90 90 0 0 1 210 120" fill="none" stroke="#dc2626" stroke-width="18" stroke-opacity="0.35" />
+              <!-- Active Progress Arc -->
+              <path id="gaugeActiveArc" d="M 30 120 A 90 90 0 0 1 30 120" fill="none" stroke="#0d9488" stroke-width="18" stroke-linecap="round" />
+              <!-- Needle -->
+              <line id="gaugeNeedle" x1="120" y1="120" x2="35" y2="120" stroke="#f8fafc" stroke-width="3" stroke-linecap="round" />
+              <circle cx="120" cy="120" r="7" fill="#f8fafc" />
+            </svg>
+            <div class="gauge-center-val">
+              <span id="sviScoreVal" class="svi-num">--</span>
+              <span class="svi-max">/ 100</span>
+            </div>
+            <div class="gauge-labels">
+              <span class="g-lbl low-lbl" data-i18n="gauge_low">0 Low</span>
+              <span class="g-lbl mod-lbl" data-i18n="gauge_mod">31 Mod</span>
+              <span class="g-lbl high-lbl" data-i18n="gauge_high">56 High</span>
+              <span class="g-lbl crit-lbl" data-i18n="gauge_crit">79-100 Crit</span>
+            </div>
+          </div>
+
+          <!-- Psychological Crisis Alert Banner (Purple, Independent of Risk Tier) -->
+          <div id="psychologicalCrisisBanner" class="crisis-banner" style="display: none;">
+            <div class="crisis-icon">💜</div>
+            <div class="crisis-content">
+              <div class="crisis-heading" data-i18n="crisis_banner_heading">MENTAL HEALTH CRISIS INDICATOR DETECTED</div>
+              <div class="crisis-text" data-i18n="crisis_banner_text">
+                Immediate referral to <strong>KIRAN Mental Health Helpline (1800-599-0019, toll-free, 24/7)</strong> + Same-day Psychiatric/Counselling Consult Mandated
+              </div>
+            </div>
+          </div>
+
+          <!-- Escalation Protocol Box -->
+          <div id="protocolBox" class="protocol-box">
+            <div class="protocol-header">
+              <span class="protocol-sla-badge" id="protocolSla" data-i18n="sla_awaiting">SLA: --</span>
+              <span class="protocol-title" id="protocolTitle" data-i18n="protocol_awaiting_title">Awaiting Assessment</span>
+            </div>
+            <p class="protocol-desc" id="protocolDesc" data-i18n="protocol_awaiting_desc">
+              Submit a statement or select a test case to compute the transparent Stress Vulnerability Index and view mandated NHAA escalation steps.
+            </p>
+            <div class="protocol-dispatch-row">
+              <span class="dispatch-label" data-i18n="mandated_action_label">Mandated Action:</span>
+              <span class="dispatch-val" id="protocolDispatch">--</span>
+            </div>
+            <div class="protocol-flags" id="protocolFlags">
+              <!-- Dynamic Witness Protection / Police liaison flags -->
+            </div>
+          </div>
+
+          <!-- Explainability Breakdown Chips -->
+          <div class="explainability-section">
+            <h3 class="section-title" data-i18n="explainable_signals_title">🔍 Explainable Vulnerability Signals</h3>
+            <div id="indicatorsContainer" class="indicators-grid">
+              <div class="empty-state-text" data-i18n="no_indicators_text">No active indicators evaluated yet.</div>
+            </div>
+          </div>
+
+          <!-- Math Breakdown -->
+          <div class="math-breakdown" id="mathBreakdownSection">
+            <div class="math-title" data-i18n="math_formula_title">📐 Auditable SVI Math Formula:</div>
+            <div class="math-formula" id="mathFormula">
+              SVI = Base(0) + Indicators(0) + Context(0) + Acoustic(0) = <strong>0</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: Counsellor Triage Operations Desk -->
+    <section id="queue-tab" class="tab-pane">
+      <!-- Live Metrics Cards -->
+      <div class="metrics-grid">
+        <div class="metric-card metric-total">
+          <div class="metric-icon">📋</div>
+          <div>
+            <div class="metric-val" id="statTotalCases">0</div>
+            <div class="metric-lbl" data-i18n="stat_total_cases">Total Intake Cases</div>
+          </div>
+        </div>
+        <div class="metric-card metric-crit">
+          <div class="metric-icon">🚨</div>
+          <div>
+            <div class="metric-val" id="statPendingCrit">0</div>
+            <div class="metric-lbl" data-i18n="stat_crit_alerts">Critical Red Alerts</div>
+          </div>
+        </div>
+        <div class="metric-card metric-high">
+          <div class="metric-icon">⚠️</div>
+          <div>
+            <div class="metric-val" id="statHighCases">0</div>
+            <div class="metric-lbl" data-i18n="stat_high_priority">High Priority (Same Day)</div>
+          </div>
+        </div>
+        <div class="metric-card metric-svi">
+          <div class="metric-icon">📈</div>
+          <div>
+            <div class="metric-val" id="statAvgSvi">0</div>
+            <div class="metric-lbl" data-i18n="stat_avg_svi">Average SVI Stress Score</div>
+          </div>
+        </div>
+        <div class="metric-card metric-compliance">
+          <div class="metric-icon">⚖️</div>
+          <div>
+            <div class="metric-val-group">
+              <span class="metric-val text-crit" id="statOverdueCount">0</span> <span class="metric-val-sub" data-i18n="lbl_stat_overdue">Overdue</span>
+              <span class="metric-val-divider">•</span>
+              <span class="metric-val text-amber" id="statApproachingCount">0</span> <span class="metric-val-sub" data-i18n="lbl_stat_approaching">Approaching</span>
+            </div>
+            <div class="metric-lbl" data-i18n="stat_statutory_deadlines">PoA Statutory Deadlines (7d/60d)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-view Navigation inside Triage Desk -->
+      <div class="triage-subnav">
+        <button class="subnav-pill active" id="subnavQueueBtn" onclick="switchTriageView('queue')">
+          <span>📋</span> <span data-i18n="subnav_live_queue">Live Risk-Prioritized Queue</span>
+        </button>
+        <button class="subnav-pill" id="subnavOverrideLogBtn" onclick="switchTriageView('override-log')">
+          <span>📜</span> <span data-i18n="subnav_override_log">Override Log</span>
+          <span class="subnav-count-badge" id="overrideLogCountBadge">0</span>
+        </button>
+        <button class="subnav-pill" id="subnavAuditBtn" onclick="switchTriageView('audit')">
+          <span>📜</span> <span data-i18n="subnav_hitl_audit">HITL Override & Audit Trail</span>
+          <span class="subnav-count-badge" id="auditCountBadge">0</span>
+        </button>
+      </div>
+
+      <!-- Live Queue Table Card -->
+      <div class="card queue-card" id="queueTableCard">
+        <div class="queue-toolbar">
+          <div class="toolbar-title-group">
+            <h2 class="card-title" data-i18n="queue_title">Live Atrocity Helpline Triage Queue</h2>
+            <p class="card-subtitle" data-i18n="queue_subtitle">Real-time risk-sorted queue: Highest trauma/threat cases elevated first</p>
+          </div>
+          <div class="toolbar-controls">
+            <div class="filter-group">
+              <label for="filterTier" class="filter-label" data-i18n="filter_risk_tier">Risk Tier:</label>
+              <select id="filterTier" class="filter-select">
+                <option value="all" data-i18n="opt_all_tiers">All Tiers</option>
+                <option value="Critical" data-i18n="opt_tier_crit">🚨 Critical (79-100)</option>
+                <option value="High" data-i18n="opt_tier_high">⚠️ High (56-78)</option>
+                <option value="Moderate" data-i18n="opt_tier_mod">🟡 Moderate (31-55)</option>
+                <option value="Low" data-i18n="opt_tier_low">🟢 Low (0-30)</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filterChannel" class="filter-label" data-i18n="filter_channel">Channel:</label>
+              <select id="filterChannel" class="filter-select">
+                <option value="all" data-i18n="opt_all_channels">All Channels</option>
+                <option value="ivrs" data-i18n="opt_channel_ivrs">📞 IVRS</option>
+                <option value="chatbot" data-i18n="opt_channel_chatbot">💬 Chatbot</option>
+                <option value="portal" data-i18n="opt_channel_portal">📋 Portal</option>
+              </select>
+            </div>
+            <input type="text" id="queueSearch" class="search-input" placeholder="Search case ID, keyword, district..." data-i18n-placeholder="search_placeholder" />
+            <button class="btn btn-outline btn-sm" id="refreshQueueBtn">
+              <span>🔄</span> <span data-i18n="btn_refresh">Refresh</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Cases Table -->
+        <div class="table-responsive">
+          <table class="cases-table">
+            <thead>
+              <tr>
+                <th data-i18n="th_case_id">Case ID</th>
+                <th data-i18n="th_channel">Channel</th>
+                <th data-i18n="th_svi_score">SVI Score</th>
+                <th data-i18n="th_risk_tier">Risk Tier & Override</th>
+                <th data-i18n="th_sla_action">SLA & Recommended Action</th>
+                <th data-i18n="th_retention_risk">Witness Retention Risk</th>
+                <th data-i18n="th_deadlines">Statutory Deadlines (PoA)</th>
+                <th data-i18n="th_key_triggers">Key Trigger Signals</th>
+                <th data-i18n="th_status">Status</th>
+                <th data-i18n="th_actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="casesTableBody">
+              <tr>
+                <td colspan="9" class="text-center" data-i18n="loading_queue">Loading live triage queue...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Override Log Card -->
+      <div class="card queue-card" id="overrideLogCard" style="display: none;">
+        <div class="queue-toolbar">
+          <div class="toolbar-title-group">
+            <h2 class="card-title" data-i18n="override_log_title">Override Log</h2>
+            <p class="card-subtitle" data-i18n="override_log_subtitle">Case ID, original AI score, overridden score, reason, and timestamp.</p>
+          </div>
+          <div class="toolbar-controls">
+            <input type="text" id="overrideLogSearch" class="search-input" placeholder="Filter by Case ID or reason..." data-i18n-placeholder="search_override_log" />
+            <button class="btn btn-outline btn-sm" onclick="fetchOverrideLogs()">
+              <span>🔄</span> <span data-i18n="btn_refresh_override_logs">Refresh Override Log</span>
+            </button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="cases-table audit-table">
+            <thead>
+              <tr>
+                <th data-i18n="th_case_id">Case ID</th>
+                <th data-i18n="th_ai_score">Original Score</th>
+                <th data-i18n="th_overridden_score">Overridden Score</th>
+                <th data-i18n="th_justification_notes">Reason</th>
+                <th data-i18n="th_timestamp">Timestamp</th>
+              </tr>
+            </thead>
+            <tbody id="overrideLogTableBody">
+              <tr><td colspan="5" class="text-center" data-i18n="loading_override_log">Loading override log entries...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- HITL Override & Escalation Audit Log Card -->
+      <div class="card queue-card" id="auditTrailCard" style="display: none;">
+        <div class="queue-toolbar">
+          <div class="toolbar-title-group">
+            <h2 class="card-title" data-i18n="audit_trail_title">HITL SVI Override & Action Audit Trail</h2>
+            <p class="card-subtitle" data-i18n="audit_trail_subtitle">Complete chronological record proving human oversight, score adjustments, and triage actions</p>
+          </div>
+          <div class="toolbar-controls">
+            <button class="btn btn-outline btn-sm" onclick="fetchAuditLogs()">
+              <span>🔄</span> <span data-i18n="btn_refresh_audit">Refresh Audit Trail</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="cases-table audit-table">
+            <thead>
+              <tr>
+                <th data-i18n="th_timestamp">Timestamp</th>
+                <th data-i18n="th_event_type">Event Type</th>
+                <th data-i18n="th_case_citizen">Case ID & Citizen</th>
+                <th data-i18n="th_ai_score">AI Score</th>
+                <th data-i18n="th_overridden_score">Overridden Score</th>
+                <th data-i18n="th_tier_shift">Tier Shift</th>
+                <th data-i18n="th_justification_notes">Counsellor Justification / Action Notes</th>
+                <th data-i18n="th_counsellor_id">Counsellor ID</th>
+              </tr>
+            </thead>
+            <tbody id="auditTableBody">
+              <tr>
+                <td colspan="8" class="text-center" data-i18n="loading_audit">Loading audit log entries...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: AI Explainability, Competitive Landscape & Ethics -->
+    <section id="audit-tab" class="tab-pane">
+      <div class="card audit-card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon">🔬</span>
+            <div>
+              <h2 class="card-title" data-i18n="tab3_title">Explainability Architecture, Competitive Landscape & Ethical Guardrails</h2>
+              <p class="card-subtitle" data-i18n="tab3_subtitle">SIH26093 Problem Statement Context — Ministry of Social Justice & Empowerment</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competitive Differentiation Matrix -->
+        <div class="landscape-section">
+          <h3 class="subsection-title" data-i18n="sec1_title">1. Landscape Analysis: How Sahayata Setu Fills the Operational Gap</h3>
+          <p class="landscape-intro" data-i18n="sec1_intro">
+            While general-purpose voice AI exists (e.g. Manodayam for defence personnel, Vocalysis for hospital stress, and academic SER benchmarks), 
+            <strong>none are tailored to India's caste-atrocity legal and helpline workflow (NHAA 14566)</strong>.
+          </p>
+
+          <div class="table-responsive">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th data-i18n="th_comp_platform">Platform / System</th>
+                  <th data-i18n="th_comp_focus">Primary Focus</th>
+                  <th data-i18n="th_comp_models">Speech/Text Models</th>
+                  <th data-i18n="th_comp_legal">Legal & Escalation Mapping</th>
+                  <th data-i18n="th_comp_explain">Explainability Layer</th>
+                  <th data-i18n="th_comp_channel">NHAA Multi-Channel (14566)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Manodayam</strong></td>
+                  <td data-i18n="comp_manodayam_focus">Armed forces / Defence stress screening</td>
+                  <td data-i18n="comp_manodayam_models">Acoustic voice biomarkers</td>
+                  <td data-i18n="comp_manodayam_legal">❌ Military wellness only</td>
+                  <td data-i18n="comp_manodayam_explain">⚠️ Black-box risk index</td>
+                  <td data-i18n="comp_manodayam_channel">❌ Telephony / IVRS only</td>
+                </tr>
+                <tr>
+                  <td><strong>Vocalysis</strong></td>
+                  <td data-i18n="comp_vocalysis_focus">Hospital & school mental health</td>
+                  <td data-i18n="comp_vocalysis_models">Speech acoustics</td>
+                  <td data-i18n="comp_vocalysis_legal">❌ Generic counselling advice</td>
+                  <td data-i18n="comp_vocalysis_explain">⚠️ Score only without signals</td>
+                  <td data-i18n="comp_vocalysis_channel">❌ App / Single-channel</td>
+                </tr>
+                <tr>
+                  <td><strong>Academic SER Research</strong></td>
+                  <td data-i18n="comp_ser_focus">Cross-corpus emotion recognition</td>
+                  <td data-i18n="comp_ser_models">RAVDESS / IEMOCAP / IndicSER</td>
+                  <td data-i18n="comp_ser_legal">❌ Academic benchmark only (45–70% accuracy)</td>
+                  <td data-i18n="comp_ser_explain">❌ Raw softmax class</td>
+                  <td data-i18n="comp_ser_channel">❌ No helpline queue integration</td>
+                </tr>
+                <tr class="highlight-row">
+                  <td><strong>Sahayata Setu (InnovateX)</strong></td>
+                  <td data-i18n="comp_setu_focus"><strong>NHAA 14566 Caste Atrocity Triage</strong></td>
+                  <td data-i18n="comp_setu_models"><strong>Multilingual Indic + Acoustic Fusion</strong></td>
+                  <td data-i18n="comp_setu_legal"><strong>✅ 4-Tier Legal Ladder (Police/PoA Act/Witness Protection)</strong></td>
+                  <td data-i18n="comp_setu_explain"><strong>✅ Full transparent keyword & factor breakdown</strong></td>
+                  <td data-i18n="comp_setu_channel"><strong>✅ Native IVRS + Chatbot + Portal Queue</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SVI Mathematical Formula -->
+        <div class="formula-section">
+          <h3 class="subsection-title" data-i18n="sec2_title">2. Auditable Stress Vulnerability Index (SVI) Formula</h3>
+          <div class="formula-box">
+            <code>
+              SVI = Clamp(0, 100, BaseGrievance + &sum; min(Weight_c, Hits_c &times; Unit_c) + ContextBoost + AcousticModifier)
+            </code>
+          </div>
+          <div class="weights-grid">
+            <div class="weight-card">
+              <h4 data-i18n="weight_lethal_title">Lethal Physical Threat (Max 28 pts)</h4>
+              <p data-i18n="weight_lethal_desc">Murder, arson, mob violence, weapons, swords, firearms (Unit: 14 pts/hit)</p>
+            </div>
+            <div class="weight-card">
+              <h4 data-i18n="weight_confinement_title">Restricted Confinement (Max 14 pts)</h4>
+              <p data-i18n="weight_confinement_desc">Barricaded, roads blocked, surrounded, hostage (Unit: 7 pts/hit)</p>
+            </div>
+            <div class="weight-card">
+              <h4 data-i18n="weight_panic_title">Panic & Extreme Fear (Max 12 pts)</h4>
+              <p data-i18n="weight_panic_desc">Screaming, crying children, pleading for life (Unit: 6 pts/hit)</p>
+            </div>
+            <div class="weight-card">
+              <h4 data-i18n="weight_boycott_title">Boycott & Discrimination (Max 16 pts)</h4>
+              <p data-i18n="weight_boycott_desc">Water well denial, ration boycott, village ostracization (Unit: 8 pts/hit)</p>
+            </div>
+            <div class="weight-card">
+              <h4 data-i18n="weight_pressure_title">Institutional Pressure (Max 12 pts)</h4>
+              <p data-i18n="weight_pressure_desc">Police refusal of FIR, forced compromise, threats to withdraw (Unit: 6 pts/hit)</p>
+            </div>
+            <div class="weight-card">
+              <h4 data-i18n="weight_urgency_title">Temporal Urgency (Max 14 pts)</h4>
+              <p data-i18n="weight_urgency_desc">Happening right now, breaking in at door (Unit: 7 pts/hit)</p>
+            </div>
+            <div class="weight-card weight-crisis" style="border-left: 3px solid #a855f7;">
+              <h4 data-i18n="weight_crisis_title">Self-Harm & Psychological Crisis Risk (Max 16 pts)</h4>
+              <p data-i18n="weight_crisis_desc">Hopelessness, suicidal ideation, social isolation, fear paralysis (Unit: 8 pts/hit). Triggers independent 24/7 KIRAN referral banner.</p>
+            </div>
+          </div>
+          <div class="clinical-note" style="margin-top: 14px; padding: 12px 16px; background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 8px; font-size: 0.85rem; color: #f3e8ff; line-height: 1.5;">
+            <span>🩺 <strong>Clinical Framework Alignment:</strong> Self-harm and psychological crisis risk categorization is conceptually aligned with structured clinical severity frameworks used in crisis intervention (such as the Columbia-Suicide Severity Rating Scale / C-SSRS), ensuring the scoring approach follows recognized clinical practice rather than ad-hoc keyword matching.</span>
+          </div>
+        </div>
+
+        <!-- Privacy & Human in the loop -->
+        <div class="ethics-section">
+          <h3 class="subsection-title" data-i18n="sec3_title">3. Privacy-by-Design & Human-in-the-Loop Ethics</h3>
+          <div class="ethics-grid">
+            <div class="ethics-card">
+              <span class="ethics-icon">🔒</span>
+              <h4 data-i18n="ethics_pii_title">Zero-PII Storage</h4>
+              <p data-i18n="ethics_pii_desc">Transcripts are processed in-memory. Citizen names and numbers are replaced with synthetic cryptographic aliases (e.g. Citizen_R_71).</p>
+            </div>
+            <div class="ethics-card">
+              <span class="ethics-icon">🛡️</span>
+              <h4 data-i18n="ethics_consent_title">Consent-Gated Processing</h4>
+              <p data-i18n="ethics_consent_desc">Screening requires affirmative citizen consent. Emergency callers can opt-out to receive standard linear queueing.</p>
+            </div>
+            <div class="ethics-card">
+              <span class="ethics-icon">👨‍⚖️</span>
+              <h4 data-i18n="ethics_hitl_title">Human-in-the-Loop Guarantee</h4>
+              <p data-i18n="ethics_hitl_desc">AI suggests priority; trained NHAA duty counsellors and nodal officers must validate every police dispatch or witness protection flag.</p>
+            </div>
+            <div class="ethics-card">
+              <span class="ethics-icon">📊</span>
+              <h4 data-i18n="ethics_ser_title">Acoustic Confidence Transparency</h4>
+              <p data-i18n="ethics_ser_desc">Explicitly factors in the 45–70% Indian language SER accuracy limitation rather than claiming artificial 100% precision.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TAB 4: Vigilance Dashboard -->
+    <section id="vigilance-tab" class="tab-pane">
+      <div class="card vigilance-dashboard-card">
+        <div class="card-header">
+          <div class="card-title-group">
+            <span class="card-icon">🛰️</span>
+            <div>
+              <h2 class="card-title" data-i18n="vigilance_dashboard_title">Vigilance Dashboard</h2>
+              <p class="card-subtitle" data-i18n="vigilance_dashboard_subtitle">Aggregate case throughput, risk concentration, statutory deadline visibility, and continuous monitoring snapshot.</p>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-sm" id="generateMonthlyReportBtn">
+            <span>📄</span> <span data-i18n="btn_generate_monthly_report">Generate Monthly Report</span>
+          </button>
+        </div>
+
+        <div class="vigilance-note">
+          <span class="note-icon">ℹ️</span>
+          <span data-i18n="vigilance_note">
+            PoA Rules, 1995 require Vigilance & Monitoring Committees to review case progress only twice yearly (January, July). This dashboard makes that review continuous instead of periodic, using the same underlying case data already captured by this system.
+          </span>
+        </div>
+
+        <div class="vigilance-metrics-grid" id="vigilanceMetricsGrid">
+          <div class="metric-card metric-total">
+            <div class="metric-icon">📋</div>
+            <div>
+              <div class="metric-val" id="vigTotalCases">0</div>
+              <div class="metric-lbl" data-i18n="stat_total_cases">Total Intake Cases</div>
+            </div>
+          </div>
+          <div class="metric-card metric-crit">
+            <div class="metric-icon">🚨</div>
+            <div>
+              <div class="metric-val" id="vigCriticalCases">0</div>
+              <div class="metric-lbl" data-i18n="tier_critical_label">Critical</div>
+            </div>
+          </div>
+          <div class="metric-card metric-high">
+            <div class="metric-icon">⚠️</div>
+            <div>
+              <div class="metric-val" id="vigHighCases">0</div>
+              <div class="metric-lbl" data-i18n="tier_high_label">High</div>
+            </div>
+          </div>
+          <div class="metric-card metric-svi">
+            <div class="metric-icon">⏱️</div>
+            <div>
+              <div class="metric-val" id="vigAvgResolution">0h</div>
+              <div class="metric-lbl" data-i18n="avg_resolution_label">Average Time-to-Resolution</div>
+            </div>
+          </div>
+          <div class="metric-card metric-compliance">
+            <div class="metric-icon">⚖️</div>
+            <div>
+              <div class="metric-val text-crit" id="vigOverdueCases">0</div>
+              <div class="metric-lbl" data-i18n="overdue_deadline_label">Overdue Statutory Deadline Counts</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="vigilance-report-panel">
+          <h3 class="subsection-title" data-i18n="monthly_progress_summary_title">Monthly-Style Case Progress Summary</h3>
+          <div class="report-grid" id="vigilanceSummaryGrid">
+            <div class="report-card">
+              <span class="report-label" data-i18n="cases_registered_label">Cases Registered</span>
+              <span class="report-value" id="vigCasesRegistered">0</span>
+            </div>
+            <div class="report-card">
+              <span class="report-label" data-i18n="chargesheets_on_time_label">Chargesheets Filed On Time</span>
+              <span class="report-value" id="vigChargesheetsOnTime">0</span>
+            </div>
+            <div class="report-card">
+              <span class="report-label" data-i18n="chargesheets_late_label">Chargesheets Filed Late</span>
+              <span class="report-value" id="vigChargesheetsLate">0</span>
+            </div>
+            <div class="report-card">
+              <span class="report-label" data-i18n="relief_on_time_label">Relief Payments Made On Time</span>
+              <span class="report-value" id="vigReliefOnTime">0</span>
+            </div>
+            <div class="report-card">
+              <span class="report-label" data-i18n="relief_late_label">Relief Payments Made Late</span>
+              <span class="report-value" id="vigReliefLate">0</span>
+            </div>
+          </div>
+          <div class="vigilance-export-output" id="vigilanceExportOutput"></div>
+        </div>
+
+        <!-- Feature 9: Atrocity-Prone Area Signal Section -->
+        <div class="vigilance-atrocity-prone-panel" style="margin-top: 24px; background: rgba(15,23,42,0.7); border: 1px solid #334155; border-radius: 8px; padding: 18px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 12px; gap: 12px; flex-wrap: wrap;">
+            <div>
+              <h3 class="subsection-title" style="margin: 0; font-size: 0.95rem; color: #f8fafc;">
+                📍 Atrocity-Prone Area Signals
+              </h3>
+              <p style="margin: 4px 0 0 0; font-size: 0.78rem; color: #94a3b8;">
+                Districts showing atrocity-prone-level case density (based on available data) — cross-check against official atrocity-prone declarations.
+              </p>
+            </div>
+            <span class="ethics-pill" style="font-size: 0.72rem;">
+              ⚡ Illustrative Threshold: 3+ High/Critical Cases
+            </span>
+          </div>
+
+          <div class="vigilance-note" style="margin-bottom: 14px; background: rgba(245, 158, 11, 0.1); border-left: 3px solid #f59e0b; padding: 10px 14px; border-radius: 4px;">
+            <span class="note-icon">ℹ️</span>
+            <span style="font-size: 0.78rem; color: #fde68a; line-height: 1.45;">
+              <strong>National Context Note:</strong> Per a 2022 union government report, some states (e.g. Uttar Pradesh) had zero officially-declared atrocity-prone areas despite high case volumes — this module demonstrates how case data could proactively surface such gaps rather than relying solely on periodic manual review.
+            </span>
+            <div style="font-size: 0.7rem; color: #cbd5e1; margin-top: 4px; opacity: 0.85;">
+              Threshold is illustrative/configurable, not an official government criterion (the real declaration process likely uses additional factors this prototype doesn't have access to).
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="cases-table audit-table" id="atrocityProneTable">
+              <thead>
+                <tr>
+                  <th>District</th>
+                  <th>State</th>
+                  <th>Critical / High Cases</th>
+                  <th>Total Sample Cases</th>
+                  <th>Special Court Status</th>
+                  <th>Density Indicator & Recommended Action</th>
+                </tr>
+              </thead>
+              <tbody id="atrocityProneTableBody">
+                <tr><td colspan="6" class="text-center text-muted" style="padding: 16px;">Loading district signals...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Counsellor Action Modal -->
+  <div id="actionModal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalCaseTitle">Counsellor Action Desk</h3>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Dynamic Case Content -->
+      </div>
+      <div class="modal-footer" id="modalFooter">
+        <button class="btn btn-outline" onclick="closeModal()" data-i18n="btn_close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HITL SVI Score Override Modal -->
+  <div id="overrideModal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" data-i18n="modal_override_title">⚖️ Human-in-the-Loop (HITL) SVI Override</h3>
+          <p class="modal-subtitle" data-i18n="modal_override_subtitle">Empowering counsellor clinical discretion over AI recommendation</p>
+        </div>
+        <button class="modal-close" onclick="closeOverrideModal()">✕</button>
+      </div>
+      <div class="modal-body" id="overrideModalBody">
+        <div class="override-context-card">
+          <div class="override-context-row">
+            <div>
+              <span class="ctx-label" data-i18n="lbl_case_id">Case Identifier:</span>
+              <strong id="ovCaseId" class="ctx-val text-mono">--</strong>
+            </div>
+            <div>
+              <span class="ctx-label" data-i18n="lbl_complainant">Complainant / Alias:</span>
+              <strong id="ovCallerAlias" class="ctx-val">--</strong>
+            </div>
+            <div>
+              <span class="ctx-label" data-i18n="lbl_channel">Channel:</span>
+              <span id="ovChannel" class="channel-tag">--</span>
+            </div>
+          </div>
+          <div class="override-score-baseline">
+            <div class="score-pill-group">
+              <span class="baseline-label" data-i18n="lbl_ai_baseline">Current AI Baseline:</span>
+              <span class="baseline-score" id="ovAiScore">--</span>
+              <span class="tier-badge" id="ovAiTierBadge">--</span>
+            </div>
+            <span class="ethics-pill" data-i18n="lbl_bound_max">🔒 Bound: ±10 pts max</span>
+          </div>
+        </div>
+
+        <!-- Interactive Score Adjustment -->
+        <div class="override-adjuster-card">
+          <div class="adjuster-header">
+            <label for="overrideSlider" class="form-label" data-i18n="lbl_adjust_svi">
+              Adjust SVI Score (Hard-Capped at ±10 points):
+            </label>
+            <span class="score-delta-badge" id="ovDeltaBadge">Delta: +0 pts</span>
+          </div>
+
+          <div class="slider-row">
+            <span class="slider-bound" id="ovMinBound">0</span>
+            <input type="range" id="overrideSlider" class="override-slider" min="0" max="100" step="1" value="50" />
+            <span class="slider-bound" id="ovMaxBound">100</span>
+            <input type="number" id="overrideNumberInput" class="override-number-input" min="0" max="100" value="50" />
+          </div>
+
+          <!-- Resulting Live Tier Preview -->
+          <div class="tier-shift-preview" id="ovTierShiftBox">
+            <span class="preview-label" data-i18n="lbl_resulting_tier">Resulting Risk Tier & Protocol:</span>
+            <span class="tier-badge" id="ovNewTierBadge">--</span>
+            <span class="preview-sla" id="ovNewSla">SLA: --</span>
+          </div>
+        </div>
+
+        <!-- Mandatory Reason Field with Quick Select -->
+        <div class="form-group" style="margin-top: 16px;">
+          <div class="label-row">
+            <label for="overrideReasonSelect" class="form-label">
+              <span data-i18n="lbl_override_reason">Reason for Override</span> <span class="text-danger">*</span> <span data-i18n="lbl_override_mandatory">(Mandatory Audit Trail Justification)</span>:
+            </label>
+            <span class="char-counter" id="ovReasonCharCount">0 characters</span>
+          </div>
+          <select id="overrideReasonSelect" class="filter-select" style="width: 100%; margin-bottom: 8px; background: #0f172a; border-color: #475569;" onchange="handleOverrideReasonSelectChange(this.value)">
+            <option value="" data-i18n="opt_reason_placeholder">-- Select Reason for Override --</option>
+            <option value="AI underestimated severity" data-i18n="opt_reason_underestimated">AI underestimated severity</option>
+            <option value="AI overestimated severity" data-i18n="opt_reason_overestimated">AI overestimated severity</option>
+            <option value="Additional context from follow-up call" data-i18n="opt_reason_followup">Additional context from follow-up call</option>
+            <option value="Other (specify)" data-i18n="opt_reason_other">Other (specify)</option>
+          </select>
+          <textarea 
+            id="overrideReasonInput" 
+            rows="3" 
+            class="form-textarea" 
+            placeholder="Document clinical judgment, newly discovered threat factors, family vulnerability, or community risk context that justifies adjusting AI score..." 
+            data-i18n-placeholder="placeholder_override_reason"
+            required
+          ></textarea>
+          <p class="field-hint text-dim" data-i18n="hint_override_reason">This reason will be permanently recorded with timestamp in the NHAA compliance audit trail.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeOverrideModal()" data-i18n="btn_cancel">Cancel</button>
+        <button class="btn btn-primary" id="confirmOverrideBtn" onclick="submitScoreOverride()">
+          <span>⚖️</span> <span data-i18n="btn_confirm_override">Confirm Override & Update Tier</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PoA Act Escalation Action Confirmation Modal -->
+  <div id="escalationConfirmModal" class="modal-backdrop">
+    <div class="modal-box modal-box-confirm">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="escModalTitle" data-i18n="modal_esc_title">Confirm PoA Act Escalation Action</h3>
+          <p class="modal-subtitle" data-i18n="modal_esc_subtitle">Simulated National Helpline Escalation Workflow</p>
+        </div>
+        <button class="modal-close" onclick="closeEscalationModal()">✕</button>
+      </div>
+      <div class="modal-body" id="escModalBody">
+        <!-- Clear Simulation Disclaimer Callout -->
+        <div class="modal-simulation-disclaimer">
+          <div class="disclaimer-header">
+            <span class="disclaimer-icon">ℹ️</span>
+            <strong data-i18n="lbl_sim_notice">PROTOTYPE SIMULATION NOTICE</strong>
+          </div>
+          <p id="escDisclaimerText" class="disclaimer-text">
+            This will flag CASE-XXXX for police liaison escalation in this prototype simulation. No real dispatch occurs — this demonstrates the intended workflow for production integration with NHAA/police systems under the SC/ST (PoA) Act.
+          </p>
+        </div>
+
+        <!-- Case Overview -->
+        <div class="esc-case-summary">
+          <div class="esc-summary-row">
+            <span><span data-i18n="lbl_case_id">Case ID:</span> <strong id="escCaseId" class="text-mono">--</strong></span>
+            <span><span data-i18n="lbl_current_tier">Current Tier:</span> <span class="tier-badge" id="escTierBadge">--</span></span>
+            <span><span data-i18n="th_svi_score">SVI Score:</span> <strong id="escSviScore" class="text-mono">--/100</strong></span>
+          </div>
+          <div class="esc-action-target">
+            <span class="target-label" data-i18n="lbl_triggering_action">Triggering Action:</span>
+            <strong id="escActionName" class="target-val">--</strong>
+          </div>
+        </div>
+
+        <!-- Counsellor Triage Remarks -->
+        <div class="form-group" style="margin-top: 14px;">
+          <label for="escNotesInput" class="form-label" data-i18n="lbl_esc_remarks">
+            Counsellor Triage Remarks / Liaison Dispatch Notes (Optional):
+          </label>
+          <textarea 
+            id="escNotesInput" 
+            rows="2" 
+            class="form-textarea" 
+            placeholder="Add operational notes, dispatch instructions, or emergency shelter allocation details..."
+            data-i18n-placeholder="placeholder_esc_notes"
+          ></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeEscalationModal()" data-i18n="btn_cancel">Cancel</button>
+        <button class="btn btn-primary" id="confirmEscalationBtn" onclick="submitEscalationAction()">
+          <span>✅</span> <span data-i18n="btn_confirm_esc_action">Confirm & Record Action (Simulation)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audit Package Modal -->
+  <div id="auditPackageModal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">📦 Audit Package</h3>
+          <p class="modal-subtitle">Tamper-Evidence Assessment Fingerprint</p>
+        </div>
+        <button class="modal-close" onclick="closeAuditPackageModal()">✕</button>
+      </div>
+      <div class="modal-body" id="auditPackageModalBody">
+        <div class="audit-package-card">
+          <div class="package-row">
+            <span class="ctx-label">Case ID:</span>
+            <strong id="auditPackageCaseId" class="text-mono">--</strong>
+          </div>
+          <div class="package-row">
+            <span class="ctx-label">Timestamp:</span>
+            <strong id="auditPackageTimestamp" class="text-mono">--</strong>
+          </div>
+          <div class="package-row">
+            <span class="ctx-label">Hash:</span>
+            <code id="auditPackageHash" class="text-mono" style="word-break: break-all;">--</code>
+          </div>
+          <div class="package-note">
+            <span id="auditPackageNote">This hash uniquely fingerprints this assessment's data. If any part of the underlying record is altered afterward, recomputing the hash will produce a different value — this is a tamper-evidence mechanism, a foundation for future legal validation, not a legal certification itself.</span>
+          </div>
+          <div class="package-status" id="auditPackageStatus">Integrity status: pending</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="closeAuditPackageModal()">Close</button>
+        <button class="btn btn-primary" id="verifyAuditPackageBtn" onclick="verifyAuditPackage()">
+          <span>🔐</span> Verify Integrity
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
